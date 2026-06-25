@@ -1,25 +1,73 @@
-# CODING AGENTS: READ THIS FIRST
+# Data Center Capitalinas — Sitio web
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Landing estática de **Data Center Capitalinas** (Córdoba, Argentina): infraestructura
+crítica, redundante y operada todos los días, con venta consultiva (sin precios ni
+autoservicio — todo lleva al formulario o a WhatsApp).
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+Es un **sitio estático** (HTML/CSS/JS, sin servidor ni build step), listo para publicar
+en GitHub Pages. Está construido sobre el sistema de diseño de la marca (tokens de color,
+tipografía, espaciado y efectos) que vive en `tokens/` y se enlaza desde `styles.css`.
 
-## What you should do — IMPORTANT
+## Estructura
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+```
+index.html        — la landing (una sola página, scroll largo)
+styles.css        — entry point del CSS: sólo @imports a tokens/
+tokens/           — fundaciones del sistema de diseño (CSS custom properties)
+  fonts.css       —   webfonts (Cinzel 400 + IBM Plex Sans/Mono vía Google Fonts)
+  colors.css      —   paleta (neutros + azul cielo de marca) y alias semánticos
+  typography.css  —   familias, escala, pesos, tracking
+  spacing.css     —   grilla de 4px, contenedores, ritmo de secciones
+  effects.css     —   radios (todos en 0), bordes, sombras, glow, gradientes, motion
+assets/           — logo y motivo "portal" de la marca
+.nojekyll         — evita el procesamiento Jekyll en GitHub Pages
+project/          — bundle de diseño original (fuente de verdad: specimens, componentes
+                    React, guidelines, SKILL.md). No se publica; queda como referencia.
+chats/            — transcripts del proceso de diseño.
+```
 
-**Find the primary design file under `project/` and read it top to bottom.** The chat transcripts will tell you which file the user was last iterating on. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Reglas de marca aplicadas
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+- **Neutral por defecto.** El azul de marca (`--sky-500`) se reserva para CTAs y para el
+  bloque de contacto invertido (fondo acento, texto negro, inputs blancos).
+- **Esquinas rectas siempre** (todos los `--radius-*` son `0`).
+- **Cinzel 400 sólo en el H1** (y el wordmark). El resto usa IBM Plex Sans.
+- **Sin bold por defecto** — peso 400; 500 en botones; 600/700 sólo para resaltar.
+- **Cards = grilla con divisores grises** (sin rellenos, sombras ni color), bordes neutros.
+- Copy en **voseo**, tono formal-cercano.
 
-## About the design files
+## Ver en local
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Es estático, así que cualquier servidor estático sirve. Por ejemplo:
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```bash
+python3 -m http.server 8000
+# luego abrí http://localhost:8000
+```
 
-## Bundle contents
+(También se puede abrir `index.html` directo en el navegador; sólo las webfonts y los
+íconos Lucide necesitan conexión a internet.)
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Datacenter Capitalinas Design System` project files (HTML prototypes, assets, components)
+## Publicar en GitHub Pages
+
+1. Subí el repo a GitHub.
+2. En **Settings → Pages**, elegí *Deploy from a branch* → rama `main` → carpeta `/ (root)`.
+3. Para usar el dominio `capitalinasdc.com`, agregá un archivo `CNAME` con esa línea y
+   apuntá el DNS según la guía de GitHub Pages (custom domains).
+
+`.nojekyll` ya está incluido para que se sirvan todos los archivos tal cual.
+
+## Pendientes de contenido (placeholders)
+
+Marcados en `index.html` con `TODO(asset)` / `TODO(content)` y bloques visibles:
+
+- Fotos reales del data center (hero) y del equipo (sección "Quiénes somos").
+- Logo de **CARGO** (sección "Caso real") y confirmación del texto del caso.
+- **Número de WhatsApp** en el link `wa.me/<número>`.
+- **Dirección** del data center en el footer.
+
+## Fuentes e íconos (sustituciones)
+
+- **Cinzel** (Google Fonts) sustituye la tipografía original del wordmark, hoy desconocida.
+- **IBM Plex Sans / Mono** para UI/body y datos técnicos.
+- Íconos vía **Lucide** (CDN), como sustituto documentado — la marca no tenía set propio.

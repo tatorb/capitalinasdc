@@ -1,0 +1,46 @@
+/* ============================================================
+   Datacenter Capitalinas — Effects: radii, shadow, motion
+   The portal is a SHARP rectangle. The system favours crisp,
+   architectural edges; rounding stays minimal. Elevation on
+   the dark ground is conveyed by thin sky-lit borders and a
+   soft sky glow rather than heavy drop shadows.
+   ============================================================ */
+:root {
+  /* ---- Corner radii — NO curved corners anywhere (brand rule) ---- */
+  --radius-none: 0;
+  --radius-xs:   0;
+  --radius-sm:   0;
+  --radius-md:   0;   /* default control radius — square */
+  --radius-lg:   0;
+  --radius-pill: 0;
+
+  /* ---- Borders ---- */
+  --border-hair:  1px;
+  --border-thick: 2px;
+
+  /* ---- Shadows (dark ground) ---- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.55);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.55);
+  --shadow-lg: 0 18px 50px rgba(0,0,0,0.60);
+
+  /* ---- Sky glow — the brand's signature lighting ---- */
+  --glow-sky-sm: 0 0 0 1px rgba(108,180,222,0.35);
+  --glow-sky-md: 0 0 0 1px rgba(108,180,222,0.40), 0 10px 40px rgba(51,104,181,0.30);
+  --glow-sky-lg: 0 0 0 1px rgba(108,180,222,0.50), 0 20px 70px rgba(51,104,181,0.40);
+
+  /* ---- Shadows on light ground ---- */
+  --shadow-light-sm: 0 1px 2px rgba(16,42,74,0.08);
+  --shadow-light-md: 0 8px 28px rgba(16,42,74,0.10);
+
+  /* ---- Sky gradients (cloud → deep) ---- */
+  --gradient-sky:    linear-gradient(180deg, #6CB4DE 0%, #3368B5 55%, #16365E 100%); /* @kind color */
+  --gradient-portal: linear-gradient(180deg, #CCEEFB 0%, #90D8F7 30%, #3368B5 100%); /* @kind color */
+  --gradient-fade-up: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%); /* @kind color */
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --duration-fast: 140ms; /* @kind other */
+  --duration-base: 240ms; /* @kind other */
+  --duration-slow: 480ms; /* @kind other */
+}
