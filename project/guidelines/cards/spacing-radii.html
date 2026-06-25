@@ -1,0 +1,27 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Corners — always square" subtitle="No curved corners anywhere; every radius token is 0" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--ink-900);font-family:var(--font-mono);padding:26px 28px;color:var(--text-body);display:flex;gap:22px;align-items:center}
+  .item{display:flex;flex-direction:column;gap:10px;align-items:center}
+  .box{width:84px;height:64px;background:var(--surface-card);border:1px solid var(--border-strong);border-radius:0}
+  .t{font-size:10px;color:var(--text-muted)}
+  .note{margin-left:14px;max-width:300px}
+  .note h4{font-family:var(--font-sans);font-weight:400;font-size:16px;color:#fff;margin:0 0 8px;letter-spacing:.02em}
+  .note p{font-family:var(--font-sans);font-size:12.5px;line-height:1.6;color:var(--text-muted);margin:0}
+</style>
+</head>
+<body>
+  <div class="item"><div class="box"></div><span class="t">cards · 0</span></div>
+  <div class="item"><div class="box"></div><span class="t">buttons · 0</span></div>
+  <div class="item"><div class="box"></div><span class="t">inputs · 0</span></div>
+  <div class="note">
+    <h4>Square, always</h4>
+    <p>The portal is a sharp rectangle and so is everything else. All <code style="color:var(--text-body)">--radius-*</code> tokens resolve to <code style="color:var(--text-body)">0</code> — no pills, no rounded cards, no circles.</p>
+  </div>
+</body>
+</html>

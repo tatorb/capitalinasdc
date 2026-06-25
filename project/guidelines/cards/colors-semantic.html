@@ -1,0 +1,33 @@
+<!-- @dsCard group="Colors" viewport="700x230" name="Semantic & status" subtitle="Surface, text, brand and status roles in context" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--surface-base);font-family:var(--font-sans);padding:22px 24px;color:var(--text-body)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .chip{border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:12px;display:flex;flex-direction:column;gap:8px;min-height:78px}
+  .dot{width:100%;height:34px;border-radius:var(--radius-sm)}
+  .lbl{font-size:11px;color:var(--text-strong);font-weight:500}
+  .tok{font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
+  .status{display:flex;gap:8px;margin-top:12px}
+  .pill{font-family:var(--font-mono);font-size:11px;padding:5px 12px;border-radius:var(--radius-pill);color:#fff}
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="chip"><div class="dot" style="background:var(--brand-primary)"></div><span class="lbl">Brand primary</span><span class="tok">--brand-primary</span></div>
+    <div class="chip"><div class="dot" style="background:var(--brand-bright)"></div><span class="lbl">Brand bright</span><span class="tok">--brand-bright</span></div>
+    <div class="chip"><div class="dot" style="background:var(--surface-card);border:1px solid var(--border-subtle)"></div><span class="lbl">Surface card</span><span class="tok">--surface-card</span></div>
+    <div class="chip"><div class="dot" style="background:var(--text-body)"></div><span class="lbl">Text body</span><span class="tok">--text-body</span></div>
+  </div>
+  <div class="status">
+    <span class="pill" style="background:var(--color-success)">success</span>
+    <span class="pill" style="background:var(--color-warning)">warning</span>
+    <span class="pill" style="background:var(--color-danger)">danger</span>
+    <span class="pill" style="background:var(--color-info);color:#06090F">info</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- @dsCard group="Type" viewport="700x200" name="Eyebrows & wordmark tracking" subtitle="Caps labels and the wordmark's wide letter-spacing" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--ink-900);font-family:var(--font-sans);padding:26px 28px;color:var(--text-strong)}
+  .stack{display:flex;flex-direction:column;gap:20px}
+  .eyebrow{font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:var(--tracking-eyebrow);color:var(--text-muted)}
+  .word{font-family:var(--font-display);font-size:22px;font-weight:400;letter-spacing:var(--tracking-wordmark);color:#fff}
+  .tag{font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
+  .line{display:flex;align-items:center;gap:18px}
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="line"><span class="eyebrow">Servicios · Datacenter</span><span class="tag">.22em — eyebrow</span></div>
+    <div class="line"><span class="word">DATACENTER&nbsp;&nbsp;CAPITALINAS</span><span class="tag">.16em — wordmark</span></div>
+  </div>
+</body>
+</html>

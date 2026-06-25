@@ -1,0 +1,61 @@
+/* ============================================================
+   Datacenter Capitalinas — Typography tokens
+   Cinzel (engraved Roman caps) for display + wordmark.
+   IBM Plex Sans for body/UI. IBM Plex Mono for technical data.
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  /* Cinzel is reserved for H1 / the wordmark ONLY, and ALWAYS weight 400.
+     Everything else (h2–h6, body, labels, UI) uses --font-sans. */
+  --font-display: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+  --font-sans:    'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---- Type scale (px) ---- */
+  --text-2xs:  11px;
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+  --text-4xl:  38px;
+  --text-5xl:  48px;
+  --text-6xl:  64px;
+  --text-7xl:  84px;
+  --text-8xl:  112px;
+
+  /* ---- Weights ---- */
+  /* Default to regular. Bold (600/700) is for emphasis only — never the
+     default weight of headings, labels or body. */
+  --weight-light:    300;
+  --weight-regular:  400;   /* default everywhere */
+  --weight-medium:   500;   /* buttons / labels that need a touch of weight */
+  --weight-semibold: 600;   /* emphasis only */
+  --weight-bold:     700;   /* strong emphasis only */
+  --weight-display:  400;   /* Cinzel is ALWAYS 400 */
+
+  /* ---- Line heights ---- */
+  --leading-none:    1;
+  --leading-tight:   1.12;
+  --leading-snug:    1.28;
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.7;
+
+  /* ---- Letter spacing ----
+     Cinzel is all-caps inscriptional — it always wants
+     generous positive tracking. Body sans stays near-zero. */
+  --tracking-display:  0.04em;   /* hero / large Cinzel */
+  --tracking-wordmark: 0.16em;   /* the wordmark lockup */
+  --tracking-eyebrow:  0.22em;   /* small caps labels */
+  --tracking-tight:   -0.01em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.02em;
+
+  /* ---- Semantic roles ---- */
+  --display-family: var(--font-display);
+  --heading-family: var(--font-display);
+  --body-family:    var(--font-sans);
+  --mono-family:    var(--font-mono);
+}

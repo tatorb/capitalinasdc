@@ -1,0 +1,79 @@
+<!-- @dsCard group="Website" viewport="1280x780" name="Marketing site — home" subtitle="Interactive single-page recreation of capitalinasdc.com" -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datacenter Capitalinas</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--ink-900);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+  #site{height:100vh;overflow-y:auto;scroll-behavior:smooth}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-thumb{background:var(--ink-600);border-radius:6px}
+  ::-webkit-scrollbar-track{background:var(--ink-900)}
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr !important}
+    .hero-portal{display:none !important}
+    .infra-grid{grid-template-columns:1fr !important}
+    .site-desktop-nav{display:none !important}
+    .feature-grid{grid-template-columns:1fr 1fr !important}
+  }
+  @media (max-width:520px){
+    .feature-grid{grid-template-columns:1fr !important}
+    .feature-cell{border-left:none !important;border-top:1px solid var(--border-subtle)}
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script>
+    // expose design-system primitives as globals for the section scripts
+    (function(){
+      var NS = window.DatacenterCapitalinasDesignSystem_239a4b;
+      if (NS) Object.assign(window, NS);
+    })();
+  </script>
+  <script type="text/babel" src="Nav.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="Sections.jsx"></script>
+  <script type="text/babel" src="Contact.jsx"></script>
+  <script type="text/babel" data-presets="react">
+    const { Nav, Hero, Services, Infrastructure, Complejo, Contact, Footer } = window;
+
+    window.__siteScroll = () => {
+      const el = document.getElementById('site');
+      return el ? el.scrollTop : 0;
+    };
+
+    function App() {
+      const onNav = (id) => {
+        const site = document.getElementById('site');
+        if (id === 'top') { site.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+        const target = document.getElementById(id);
+        if (target && site) site.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' });
+      };
+      React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); }, []);
+      return (
+        <div id="site">
+          <Nav onNav={onNav} />
+          <Hero onNav={onNav} />
+          <Services />
+          <Infrastructure />
+          <Complejo />
+          <Contact />
+          <Footer onNav={onNav} />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

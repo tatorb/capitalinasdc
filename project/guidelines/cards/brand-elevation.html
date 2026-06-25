@@ -1,0 +1,20 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Elevation" subtitle="Neutral depth — hairline borders and soft shadow on the dark ground" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--ink-900);font-family:var(--font-sans);padding:30px 28px;display:flex;gap:24px;align-items:center}
+  .card{flex:1;background:var(--surface-card);border-radius:var(--radius-md);height:118px;display:flex;align-items:flex-end;padding:12px;box-sizing:border-box}
+  .lbl{font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)}
+</style>
+</head>
+<body>
+  <div class="card" style="border:1px solid var(--border-subtle)"><span class="lbl">border-subtle</span></div>
+  <div class="card" style="border:1px solid var(--border-strong);box-shadow:var(--shadow-sm)"><span class="lbl">shadow-sm</span></div>
+  <div class="card" style="border:1px solid var(--border-subtle);box-shadow:var(--shadow-md)"><span class="lbl">shadow-md</span></div>
+  <div class="card" style="border:1px solid var(--border-strong);box-shadow:var(--shadow-lg)"><span class="lbl">shadow-lg</span></div>
+</body>
+</html>
